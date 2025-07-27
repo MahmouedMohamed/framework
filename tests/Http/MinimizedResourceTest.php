@@ -43,7 +43,7 @@ class MinimizedResourceTest extends TestCase
     {
         $data = [
             (object) ['id' => 1, 'name' => 'Mahmoued', 'email' => 'mahmoued@example.com'],
-            (object) ['id' => 2, 'name' => 'Mohamed', 'email' => 'mohamed@example.com']
+            (object) ['id' => 2, 'name' => 'Mohamed', 'email' => 'mohamed@example.com'],
         ];
 
         $collection = DummyResource::collectionWithOnly($data, ['id']);
@@ -53,7 +53,7 @@ class MinimizedResourceTest extends TestCase
         $transformed = DummyResource::collection($collection)->toArray($request);
 
         $transformed = array_map(function ($item) {
-            return array_filter($item, fn($value) => !($value instanceof MissingValue));
+            return array_filter($item, fn ($value) => ! ($value instanceof MissingValue));
         }, $transformed);
 
         $this->assertEquals([
@@ -66,7 +66,7 @@ class MinimizedResourceTest extends TestCase
     {
         $data = [
             (object) ['id' => 1, 'name' => 'Mahmoued', 'email' => 'mahmoued@example.com'],
-            (object) ['id' => 2, 'name' => 'Mohamed', 'email' => 'mohamed@example.com']
+            (object) ['id' => 2, 'name' => 'Mohamed', 'email' => 'mohamed@example.com'],
         ];
 
         $collection = DummyResource::collectionWithOnly($data);
@@ -76,7 +76,7 @@ class MinimizedResourceTest extends TestCase
         $transformed = DummyResource::collection($collection)->toArray($request);
 
         $transformed = array_map(function ($item) {
-            return array_filter($item, fn($value) => !($value instanceof MissingValue));
+            return array_filter($item, fn ($value) => ! ($value instanceof MissingValue));
         }, $transformed);
 
         $this->assertEquals([
@@ -86,7 +86,7 @@ class MinimizedResourceTest extends TestCase
     }
 
     /**
-     * Helper to call protected method
+     * Helper to call protected method.
      */
     private function callProtected($object, $method, array $args = [])
     {
